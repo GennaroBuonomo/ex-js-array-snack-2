@@ -53,27 +53,19 @@ const availableBooks = books.filter(books => books.available);
 console.log(availableBooks);
 
 const discountedBooks = availableBooks.map(book => {
-  const priceString = book.price;
-  const priceValue = parseFloat(priceString); 
-  const currency = priceString.replace(priceValue, '');
-
-  const discountedValue = priceValue * 0.8; 
-  const roundedValue = discountedValue.toFixed(2); 
-
-  const newPriceString = roundedValue + currency;
-
-  return {
-    ...book, 
-    price: newPriceString 
-  };
+  const price = parseFloat(book.price.replace('€', ''));
+	const discountedPrice = (price * 0.8).toFixed(2)
+	return{
+		...book,
+		price: `${discountedPrice}`
+	}
 });
 
 console.log(discountedBooks);
 
 const fullPricedBook = discountedBooks.find(book => {
-  const priceValue = parseFloat(book.price);
-  return Number.isInteger(priceValue);
+	const price = parseFloat(book.price.replace('€', ''));
+	return price % 1 === 0;
 });
 
-console.log('Primo libro con prezzo intero scontato');
 console.log(fullPricedBook);
