@@ -55,3 +55,7 @@ console.log(longBooks);
 
 const longBooksTitles = longBooks.map(books => books.title);
 console.log(longBooksTitles)
+
+const titoliConsole = books.forEach(books => {
+  console.log(books.title);
+});
