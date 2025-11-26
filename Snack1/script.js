@@ -50,12 +50,19 @@ const books = [
 //Creare un array (longBooksTitles) che contiene solo i titoli dei libri contenuti in longBooks.
 //Stampa in console ogni titolo nella console.
 
-const longBooks = books.filter(books => books.pages > 300);
+
+// Ho usato FILTER perchè mi serviva per prendere solo gli elementi che superavano una certa prova (CONDIZIONE)
+
+const longBooks = books.filter(book => book.pages > 300);
 console.log(longBooks);
 
-const longBooksTitles = longBooks.map(books => books.title);
+//Ho usato MAP perchè ho preso la lista trasformato gli oggetti complessi in semplici titoli (COME LA RICHIESTA DELLA CONSEGNA)
+
+const longBooksTitles = longBooks.map(book => book.title);
 console.log(longBooksTitles)
 
-const titoliConsole = books.forEach(books => {
-  console.log(books.title);
+//Ho usato il FOREACH perchè voglio che succedono cose (CHE STAMPI IN CONSOLE IL TITOLO)
+
+books.forEach(book => {
+  console.log(book.title);
 });
