@@ -49,8 +49,14 @@ const books = [
 //Crea un array (discountedBooks) con gli availableBooks, ciascuno con il prezzo scontato del 20% (mantieni lo stesso formato e arrotonda al centesimo)
 //Salva in una variabile (fullPricedBook) il primo elemento di discountedBooks che ha un prezzo intero (senza centesimi).
 
+
+// Ho usato FILTER perchè mi serviva per prendere solo gli elementi che superavano una certa prova (CONDIZIONE)
+
 const availableBooks = books.filter(books => books.available);
 console.log(availableBooks);
+
+// Allora ho usato molte operazioni come il (MAP: che mi serve per prendere l' array con la stessa lunghezza dell vecchio ma con i dati modificati) , (PARSEFLOAT: che trasforma la stringa numerica in un numero vero , poi .REPLACE: nel caso dell' esercizio cerca il simbolo dell' euro e lo sostituisce con il nulla sempre in stringa) , (.TOFIXED(2) è fondamentale per i soldi ci assicura che ci siano sempre due decimali dopo la virgola restituendo una stringa) , (poi ho usato lo SPREED OPERATOR che mi permette di copiare tutte le proprietà che ci sono nel libro originale poi il PRICE che scrivendolo cosi ${} mi sovrascrive la proprietà con il nuovo valore scontato)
+
 
 const discountedBooks = availableBooks.map(book => {
   const price = parseFloat(book.price.replace('€', ''));
@@ -63,7 +69,10 @@ const discountedBooks = availableBooks.map(book => {
 
 console.log(discountedBooks);
 
-const fullPricedBook = discountedBooks.find(book => {
+
+	// Ho usato il .FIND che mi serve per restituire il primo elemento che soddisfa una condizione poi ho usato il (PARSEFLOAT , .REPLACE: per trasformare la stringa in numero) poi ho usato un controllo matematico (RETURN PRICE % 1 === 0) Questo significa che sta cercando il libro con il prezzo tondo senza centesimi 
+	
+const fullPricedBook = discountedBooks.find(book => { 
 	const price = parseFloat(book.price.replace('€', ''));
 	return price % 1 === 0;
 });

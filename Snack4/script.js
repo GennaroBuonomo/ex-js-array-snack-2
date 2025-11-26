@@ -50,8 +50,13 @@ const books = [
 //Calcola la somma delle età (agesSum) usando reduce.
 //Stampa in console l’età media degli autori dei libri.
 
+
+// Ho usato MAP perche mi ha chiesto di restituire un array con solo l età degli autori dei libri
 const ages = books.map(books => books.author.age);
 console.log(ages)
+
+
+// Ho usato il REDUCE() che mi server per prendere l' intero array e ridurlo in un unico valore pi ACC(accumulatore) acc = accumulatore (il totale parziale che cresce) AGE (Elemento Corrente) age = l'età corrente che stiamo sommando e lo 0 (valore iniziale) gli diciamo all accumulatore di partire da 0 poi con la formula (${ageSum / ages.length})Calcolo la media dividendo la somma totale per il numero di autori (length)
 
 const agesSum = ages.reduce((acc, age) => acc + age, 0);
 console.log(`L' età media degli autori è: ${agesSum / ages.length}`)
